@@ -99,7 +99,11 @@ function App() {
               <UserForm onSubmit={handleUserSubmit} />
             ) : (
               <div>
-                <UserDisplay user={currentUser} onEdit={handleUserEdit} />
+                {currentUser ? (
+                  <UserDisplay user={currentUser} onEdit={handleUserEdit} />
+                ) : (
+                  <p className="text-center text-gray-500">No user selected.</p>
+                )}
                 <div className="mt-4 text-center">
                   <button
                     onClick={handleBackToForm}
